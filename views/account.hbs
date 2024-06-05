@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h3>Server-Client App</h3>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/account">Account</a></li>
+        </ul>
+    </nav>
+    <div class="user-info">
+        <h1>account</h1>
+        <h2 class="form-text">{{user.Username}}</h4>
+        <h2 class="form-text">{{user.Usermail}}</h4>
+        <form action="/auth/logout">
+            <button type="submit">Logout</button>
+        </form>
+    </div>   
+        
+        <form class="container" action="/auth/changeName" method="post">
+            <h1>Change Name</h1>
+            <label for="email" class="form-text">Email:</label><br>
+            <input type="email" id="email" name="email" class="form-input"><br><br>
+
+            <label for="text" class="form-text">New Name:</label><br>
+            <input type="text" id="text" name="newname" class="form-input"><br><br>
+        
+            <label for="password" class="form-text">Password:</label><br>
+            <input type="password" id="password" name="password" class="form-input"><br><br>
+            <button type="submit">Change Name</button>
+            {{#if message}}
+                <h4 class="form-text">{{message}}</h4>
+            {{/if}}
+        </form>
+
+        <form class="container" action="/auth/changePassword" method="post">
+            <h1>Change Password</h1>
+            <label for="email" class="form-text">Email:</label><br>
+            <input type="email" id="email" name="email" class="form-input"><br><br>
+
+            <label for="password" class="form-text">Old Password:</label><br>
+            <input type="password" id="password" name="oldpass" class="form-input"><br><br>
+        
+            <label for="password" class="form-text">New Password:</label><br>
+            <input type="password" id="password" name="newpass" class="form-input"><br><br>
+            <button type="submit">Change Password</button>
+            {{#if message2}}
+                <h4 class="form-text">{{message2}}</h4>
+            {{/if}}
+        </form>
+</body>
+</html>

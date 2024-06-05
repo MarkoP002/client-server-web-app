@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Register</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h3>Server-Client App</h3>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/account">Account</a></li>
+        </ul>
+    </nav>
+    
+    
+    <form action="/auth/register" method="post" class="container">
+        <h2>Register Form</h2>
+        <label for="name" class="form-text">Name:</label><br>
+        <input type="text" id="name" name="name" class="form-input"><br><br>
+        
+        <label for="email" class="form-text">Email:</label><br>
+        <input type="email" id="email" name="email" class="form-input"><br><br>
+        
+        <label for="password" class="form-text">Password:</label><br>
+        <input type="password" id="password" name="password" class="form-input"><br><br>
+        
+        <label for="parola" class="form-text">Confirm Password:</label><br>
+        <input type="password" id="parola" name="parola" class="form-input"><br><br>
+        
+        <label for="captcha" class="form-text">CAPTCHA:</label><br>
+        <input type="text" id="captcha" name="captcha" class="form-input"><br>
+        {{#if captcha}}
+            <label>{{captcha}}</label>
+        {{/if}}
+        <input type="hidden" id="captcha" name="Scaptcha" class="form-input" value={{captcha}}><br>
+        
+        <button type="submit" id="submit-btn">Submit</button>
+        <label class="form-text">Already have an account? <a href="/login">Log in</a></label>
+        {{#if message}}
+            <h4 class="form-text">{{message}}</h4>
+        {{/if}}
+    </form>
+    
+</body>
+</html>
